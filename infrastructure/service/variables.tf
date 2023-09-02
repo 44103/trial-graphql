@@ -1,15 +1,14 @@
 variable "region" {}
-
+variable "access_key" {}
+variable "secret_key" {}
 variable "project" {
   description = "project name"
   default     = "trial"
 }
-
 variable "service" {
   description = "service name"
   default     = "graphql"
 }
-
 variable "environment" {
   description = "environment"
   default     = "dev"
