@@ -1,0 +1,7 @@
+{
+    "name": "Terraform",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "terraform",
+    "shutdownAction": "none",
+    "workspaceFolder": "/workspace/infrastructure"
+  }
