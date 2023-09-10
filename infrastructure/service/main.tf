@@ -1,13 +1,23 @@
 data "aws_caller_identity" "_" {}
 
-module "dynamodb_todo" {
+module "appsync" {
+  source      = "../modules/appsync"
+  commons     = local.commons
+  name        = "post"
+  schema_file = "./schema.graphql"
+  dynamodb    = module.dynamodb
+  function    = "../functions/appsync/function/get.js"
+  resolver    = "../functions/appsync/resolver/get.js"
+}
+
+module "dynamodb" {
   source        = "../modules/dynamodb"
   commons       = local.commons
   name          = "todo"
-  partition_key = "name"
+  partition_key = "id"
   attributes = [
     {
-      name = "name"
+      name = "id"
       type = "S"
     }
   ]
