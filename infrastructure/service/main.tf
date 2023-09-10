@@ -13,12 +13,23 @@ module "appsync" {
 module "dynamodb" {
   source        = "../modules/dynamodb"
   commons       = local.commons
-  name          = "todo"
+  name          = "post"
   partition_key = "id"
   attributes = [
     {
       name = "id"
       type = "S"
+    },
+    {
+      name = "author"
+      type = "S"
+    }
+  ]
+  gsi_parameters = [
+    {
+      name            = "author"
+      projection_type = "ALL"
+      partition_key   = "author"
     }
   ]
 }
