@@ -54,33 +54,17 @@ resource "aws_appsync_datasource" "_" {
   }
 }
 
-resource "aws_appsync_function" "_" {
+resource "aws_appsync_resolver" "_" {
+  for_each    = var.resolvers
   api_id      = aws_appsync_graphql_api._.id
   data_source = aws_appsync_datasource._.name
-  name        = local.name
-  code        = file(var.function)
+  field       = each.key
+  type        = each.value.type
+  kind        = each.value.kind
+  code        = file(each.value.code)
 
   runtime {
     name            = "APPSYNC_JS"
     runtime_version = "1.0.0"
-  }
-}
-
-resource "aws_appsync_resolver" "_" {
-  api_id = aws_appsync_graphql_api._.id
-  type   = "Query"
-  field  = "getTodoList"
-  kind   = "PIPELINE"
-  code   = file(var.resolver)
-
-  runtime {
-    name            = "APPSYNC_JS"
-    runtime_version = "1.0.0"
-  }
-
-  pipeline_config {
-    functions = [
-      aws_appsync_function._.function_id,
-    ]
   }
 }

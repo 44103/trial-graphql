@@ -2,8 +2,13 @@ variable "commons" {}
 variable "name" {}
 variable "schema_file" {}
 variable "dynamodb" {}
-variable "function" {}
-variable "resolver" {}
+variable "resolvers" {
+  type = map(object({
+    type = string
+    kind = string
+    code = string
+  }))
+}
 
 locals {
   name = join("_", [

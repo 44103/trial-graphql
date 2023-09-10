@@ -6,8 +6,13 @@ module "appsync" {
   name        = "post"
   schema_file = "./schema.graphql"
   dynamodb    = module.dynamodb
-  function    = "../functions/appsync/function/get.js"
-  resolver    = "../functions/appsync/resolver/get.js"
+  resolvers = {
+    addPost = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/add_post.js"
+    }
+  }
 }
 
 module "dynamodb" {
