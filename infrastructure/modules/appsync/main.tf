@@ -31,7 +31,10 @@ resource "aws_iam_role_policy" "_" {
           "dynamodb:DeleteItem",
         ],
         Effect : "Allow",
-        Resource : "${var.dynamodb.table.arn}:*"
+        Resource : [
+          "${var.dynamodb.table.arn}",
+          "${var.dynamodb.table.arn}/*"
+        ]
       }
     ]
   })
@@ -41,6 +44,10 @@ resource "aws_appsync_graphql_api" "_" {
   authentication_type = "API_KEY"
   name                = local.name
   schema              = file(var.schema_file)
+}
+
+resource "aws_appsync_api_key" "_" {
+  api_id = aws_appsync_graphql_api._.id
 }
 
 resource "aws_appsync_datasource" "_" {
