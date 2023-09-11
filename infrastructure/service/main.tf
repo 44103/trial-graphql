@@ -7,15 +7,20 @@ module "appsync" {
   schema_file = "./schema.graphql"
   dynamodb    = module.dynamodb
   resolvers = {
-    addPost = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../functions/appsync/resolver/add_post.js"
-    }
     getPost = {
       type = "Query"
       kind = "UNIT"
       code = "../functions/appsync/resolver/get_post.js"
+    }
+    updatePost = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/update_post.js"
+    }
+    addPost = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/add_post.js"
     }
   }
 }
