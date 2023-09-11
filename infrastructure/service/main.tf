@@ -12,6 +12,11 @@ module "appsync" {
       kind = "UNIT"
       code = "../functions/appsync/resolver/add_post.js"
     }
+    getPost = {
+      type = "Query"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/get_post.js"
+    }
   }
 }
 
