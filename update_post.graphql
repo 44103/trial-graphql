@@ -1,0 +1,17 @@
+mutation updatePost {
+  updatePost(
+    id:123
+    title: "An empty story"
+    content: null
+    expectedVersion: 1
+  ) {
+    id
+    author
+    title
+    content
+    url
+    ups
+    downs
+    version
+  }
+}
