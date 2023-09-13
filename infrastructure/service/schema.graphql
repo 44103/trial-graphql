@@ -8,6 +8,7 @@ type Query {
 }
 
 type Mutation {
+  vote(id: ID!, direction: DIRECTION!): Post
   updatePost(
     id: ID!
     author: String
@@ -16,7 +17,6 @@ type Mutation {
     url: String
     expectedVersion: Int!
   ): Post
-
   addPost(
     id: ID
     author: String!
@@ -24,6 +24,11 @@ type Mutation {
     content: String!
     url: String!
   ): Post!
+}
+
+enum DIRECTION {
+  UP
+  DOWN
 }
 
 type Post {

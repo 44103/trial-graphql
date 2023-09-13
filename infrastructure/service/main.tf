@@ -12,6 +12,11 @@ module "appsync" {
       kind = "UNIT"
       code = "../functions/appsync/resolver/get_post.js"
     }
+    vote = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/vote.js"
+    }
     updatePost = {
       type = "Mutation"
       kind = "UNIT"
