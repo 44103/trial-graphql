@@ -8,6 +8,7 @@ type Query {
 }
 
 type Mutation {
+  deletePost(id: ID!, expectedVersion: Int): Post
   vote(id: ID!, direction: DIRECTION!): Post
   updatePost(
     id: ID!
