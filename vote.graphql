@@ -1,0 +1,12 @@
+mutation votePost {
+  vote(id:123, direction: UP) {
+    id
+    author
+    title
+    content
+    url
+    ups
+    downs
+    version
+  }
+}
