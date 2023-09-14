@@ -1,0 +1,9 @@
+query allPostsByAuthor {
+  allPostsByAuthor(author: "Nadia") {
+    posts {
+      id
+      title
+    }
+    nextToken
+  }
+}
