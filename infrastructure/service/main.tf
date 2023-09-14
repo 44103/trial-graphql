@@ -17,6 +17,11 @@ module "appsync" {
       kind = "UNIT"
       code = "../functions/appsync/resolver/all_post.js"
     }
+    allPostsByAuthor = {
+      type = "Query"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/all_posts_by_author.js"
+    }
     deletePost = {
       type = "Mutation"
       kind = "UNIT"

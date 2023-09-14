@@ -4,6 +4,11 @@ schema {
 }
 
 type Query {
+  allPostsByAuthor(
+    author: String!
+    limit: Int
+    nextToken: String
+  ): PaginatedPosts!
   allPost(limit: Int, nextToken: String): PaginatedPosts!
   getPost(id: ID): Post
 }
