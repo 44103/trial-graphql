@@ -4,6 +4,7 @@ schema {
 }
 
 type Query {
+  allPost(limit: Int, nextToken: String): PaginatedPosts!
   getPost(id: ID): Post
 }
 
@@ -41,4 +42,9 @@ type Post {
   ups: Int!
   downs: Int!
   version: Int!
+}
+
+type PaginatedPosts {
+  posts: [Post!]!
+  nextToken: String
 }
