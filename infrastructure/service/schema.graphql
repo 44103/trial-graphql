@@ -4,6 +4,7 @@ schema {
 }
 
 type Query {
+  allPostsByTag(tag: String!, limit: Int, nextToken: String): PaginatedPosts!
   allPostsByAuthor(
     author: String!
     limit: Int
@@ -14,6 +15,8 @@ type Query {
 }
 
 type Mutation {
+  addTag(id: ID!, tag: String!): Post
+  removeTag(id: ID!, tag: String!): Post
   deletePost(id: ID!, expectedVersion: Int): Post
   vote(id: ID!, direction: DIRECTION!): Post
   updatePost(
@@ -47,6 +50,7 @@ type Post {
   ups: Int!
   downs: Int!
   version: Int!
+  tags: [String!]
 }
 
 type PaginatedPosts {

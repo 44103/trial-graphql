@@ -22,6 +22,21 @@ module "appsync" {
       kind = "UNIT"
       code = "../functions/appsync/resolver/all_posts_by_author.js"
     }
+    allPostsByTag = {
+      type = "Query"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/all_posts_by_tag.js"
+    }
+    addTag = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/add_tag.js"
+    }
+    removeTag = {
+      type = "Mutation"
+      kind = "UNIT"
+      code = "../functions/appsync/resolver/remove_tag.js"
+    }
     deletePost = {
       type = "Mutation"
       kind = "UNIT"
