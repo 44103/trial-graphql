@@ -1,0 +1,10 @@
+query allPostsByTag {
+  allPostsByTag(tag: "dog") {
+    posts {
+      id
+      title
+      tags
+    }
+    nextToken
+  }
+}

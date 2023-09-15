@@ -1,0 +1,7 @@
+mutation removeTag {
+  removeTag(id:10 tag: "puppy") {
+    id
+    title
+    tags
+  }
+}

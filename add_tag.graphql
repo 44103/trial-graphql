@@ -1,0 +1,7 @@
+mutation addTag {
+  addTag(id:10 tag: "dog") {
+    id
+    title
+    tags
+  }
+}
