@@ -6,56 +6,71 @@ module "appsync" {
   name        = "post"
   schema_file = "./schema.graphql"
   dynamodb    = module.dynamodb
+  data_source = {
+    dynamodb = {
+      post = module.dynamodb
+    }
+  }
   resolvers = {
     getPost = {
-      type = "Query"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/get_post.js"
+      type        = "Query"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/get_post.js"
     }
     allPost = {
-      type = "Query"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/all_post.js"
+      type        = "Query"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/all_post.js"
     }
     allPostsByAuthor = {
-      type = "Query"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/all_posts_by_author.js"
+      type        = "Query"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/all_posts_by_author.js"
     }
     allPostsByTag = {
-      type = "Query"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/all_posts_by_tag.js"
+      type        = "Query"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/all_posts_by_tag.js"
     }
     addTag = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/add_tag.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/add_tag.js"
     }
     removeTag = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/remove_tag.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/remove_tag.js"
     }
     deletePost = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/delete_post.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/delete_post.js"
     }
     vote = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/vote.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/vote.js"
     }
     updatePost = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/update_post.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/update_post.js"
     }
     addPost = {
-      type = "Mutation"
-      kind = "UNIT"
-      code = "../../functions/appsync/resolver/add_post.js"
+      type        = "Mutation"
+      data_source = "post"
+      kind        = "UNIT"
+      code        = "../../functions/appsync/resolver/add_post.js"
     }
   }
 }
