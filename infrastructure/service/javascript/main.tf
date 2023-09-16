@@ -1,7 +1,7 @@
 data "aws_caller_identity" "_" {}
 
 module "appsync" {
-  source      = "../modules/appsync"
+  source      = "../../modules/appsync"
   commons     = local.commons
   name        = "post"
   schema_file = "./schema.graphql"
@@ -10,58 +10,58 @@ module "appsync" {
     getPost = {
       type = "Query"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/get_post.js"
+      code = "../../functions/appsync/resolver/get_post.js"
     }
     allPost = {
       type = "Query"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/all_post.js"
+      code = "../../functions/appsync/resolver/all_post.js"
     }
     allPostsByAuthor = {
       type = "Query"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/all_posts_by_author.js"
+      code = "../../functions/appsync/resolver/all_posts_by_author.js"
     }
     allPostsByTag = {
       type = "Query"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/all_posts_by_tag.js"
+      code = "../../functions/appsync/resolver/all_posts_by_tag.js"
     }
     addTag = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/add_tag.js"
+      code = "../../functions/appsync/resolver/add_tag.js"
     }
     removeTag = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/remove_tag.js"
+      code = "../../functions/appsync/resolver/remove_tag.js"
     }
     deletePost = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/delete_post.js"
+      code = "../../functions/appsync/resolver/delete_post.js"
     }
     vote = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/vote.js"
+      code = "../../functions/appsync/resolver/vote.js"
     }
     updatePost = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/update_post.js"
+      code = "../../functions/appsync/resolver/update_post.js"
     }
     addPost = {
       type = "Mutation"
       kind = "UNIT"
-      code = "../functions/appsync/resolver/add_post.js"
+      code = "../../functions/appsync/resolver/add_post.js"
     }
   }
 }
 
 module "dynamodb" {
-  source        = "../modules/dynamodb"
+  source        = "../../modules/dynamodb"
   commons       = local.commons
   name          = "post"
   partition_key = "id"
