@@ -1,0 +1,17 @@
+mutation AddPost {
+  addPost(
+    id: 6
+    author: "Author6"
+    title: "Sixth book"
+    url: "https://www.amazon.com/"
+    content: "This is the book is a tutorial for using GraphQL with AWS AppSync."
+  ) {
+    id
+    author
+    title
+    content
+    url
+    ups
+    downs
+  }
+}
