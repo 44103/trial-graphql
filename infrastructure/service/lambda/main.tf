@@ -40,7 +40,7 @@ module "appsync" {
       type        = "Post"
       data_source = "blog"
       kind        = "UNIT"
-      code        = "../../functions/appsync/resolver/lambda.js"
+      code        = "../../functions/appsync/resolver/related_posts.js"
     }
   }
 }
