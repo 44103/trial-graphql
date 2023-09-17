@@ -1,6 +1,6 @@
 export const handler = async (event) => {
   console.log("Received event {}", JSON.stringify(event, 3));
-  // throw new Error("I always fail.");
+  // throw new Error("I fail. always");
 
   const posts = {
     1: {
@@ -60,6 +60,13 @@ export const handler = async (event) => {
     4: [posts["2"], posts["1"]],
     5: [],
   };
+
+  if (!event.field && event.length) {
+    console.log(
+      `Got a BatchInvoke Request. The payload has ${event.length} items to resolve.`
+    );
+    return event.map((e) => relatedPosts[e.source.id]);
+  }
 
   console.log("Got an Invoke Request.");
   let result;
