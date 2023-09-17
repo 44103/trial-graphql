@@ -8,6 +8,11 @@ export function request(ctx) {
   };
 }
 
+// the lambdaInvoke response handler
 export function response(ctx) {
-  return ctx.result;
+  const { error, result } = ctx;
+  if (error) {
+    util.appendError(error.message, error.type, result);
+  }
+  return result;
 }

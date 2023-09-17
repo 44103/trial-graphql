@@ -1,5 +1,6 @@
 export const handler = async (event) => {
   console.log("Received event {}", JSON.stringify(event, 3));
+  // throw new Error("I always fail.");
 
   const posts = {
     1: {
