@@ -65,7 +65,17 @@ export const handler = async (event) => {
     console.log(
       `Got a BatchInvoke Request. The payload has ${event.length} items to resolve.`
     );
-    return event.map((e) => relatedPosts[e.source.id]);
+    return event.map((e) => {
+      // return an error for post 2
+      // if (e.source.id === "2") {
+      //   return {
+      //     data: null,
+      //     errorMessage: "Error Happened",
+      //     errorType: "ERROR",
+      //   };
+      // }
+      return { data: relatedPosts[e.source.id] };
+    });
   }
 
   console.log("Got an Invoke Request.");
