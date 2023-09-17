@@ -1,0 +1,15 @@
+query AllPosts {
+  allPosts {
+    id
+    author
+    title
+    content
+    url
+    ups
+    downs
+    relatedPosts {
+      id
+      title
+    }
+  }
+}
