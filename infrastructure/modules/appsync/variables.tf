@@ -21,6 +21,9 @@ variable "resolvers" {
     code        = string
   }))
 }
+variable "max_batch_size" {
+  default = 0
+}
 
 locals {
   name = join("_", [

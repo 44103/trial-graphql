@@ -17,13 +17,14 @@ module "data_source" {
 }
 
 resource "aws_appsync_resolver" "_" {
-  for_each    = var.resolvers
-  api_id      = aws_appsync_graphql_api._.id
-  data_source = module.data_source.datasource[each.value.data_source].name
-  field       = each.key
-  type        = each.value.type
-  kind        = each.value.kind
-  code        = file(each.value.code)
+  for_each       = var.resolvers
+  api_id         = aws_appsync_graphql_api._.id
+  data_source    = module.data_source.datasource[each.value.data_source].name
+  field          = each.key
+  type           = each.value.type
+  kind           = each.value.kind
+  code           = file(each.value.code)
+  max_batch_size = var.max_batch_size
 
   runtime {
     name            = "APPSYNC_JS"
