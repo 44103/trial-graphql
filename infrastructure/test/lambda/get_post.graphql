@@ -1,0 +1,11 @@
+query GetPost {
+  getPost(id: "2") {
+    id
+    author
+    title
+    content
+    url
+    ups
+    downs
+  }
+}
