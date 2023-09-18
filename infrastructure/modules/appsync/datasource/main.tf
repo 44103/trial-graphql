@@ -83,3 +83,10 @@ resource "aws_appsync_datasource" "lambda" {
     function_arn = each.value.function.arn
   }
 }
+
+resource "aws_appsync_datasource" "local" {
+  for_each = var.data_sources.local
+  api_id   = var.graphql_api.id
+  name     = each.key
+  type     = "NONE"
+}

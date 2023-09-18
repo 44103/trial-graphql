@@ -11,6 +11,7 @@ variable "data_source" {
   type = object({
     dynamodb = optional(map(any), {})
     lambda   = optional(map(any), {})
+    local    = optional(map(any), {})
   })
 }
 variable "resolvers" {

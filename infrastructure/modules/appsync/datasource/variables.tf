@@ -3,6 +3,7 @@ variable "data_sources" {
   type = object({
     dynamodb = map(any)
     lambda   = map(any)
+    local    = map(any)
   })
 }
 variable "graphql_api" {}
