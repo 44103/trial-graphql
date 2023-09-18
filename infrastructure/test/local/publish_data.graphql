@@ -1,0 +1,6 @@
+mutation PublishData {
+  publish(data: "{\"msg\": \"hello world!\"}", name: "channel") {
+    data
+    name
+  }
+}

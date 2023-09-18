@@ -1,0 +1,6 @@
+subscription SubscribeToData {
+  subscribe(name: "channel") {
+    name
+    data
+  }
+}
