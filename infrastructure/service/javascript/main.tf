@@ -5,7 +5,6 @@ module "appsync" {
   commons     = local.commons
   name        = "post"
   schema_file = "./schema.graphql"
-  dynamodb    = module.dynamodb
   data_source = {
     dynamodb = {
       post = module.dynamodb

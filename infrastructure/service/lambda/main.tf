@@ -11,7 +11,6 @@ module "appsync" {
   commons     = local.commons
   name        = "blog"
   schema_file = "./schema.graphql"
-  lambda      = module.lambda
   data_source = {
     lambda = {
       blog = module.lambda
